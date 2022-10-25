@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import React, { FC, useState } from "react";
 // import { styleCenter } from '../../layouts/Layout'
 import { styled, withExpoSnack } from "nativewind";
@@ -28,9 +28,7 @@ const Auth: FC = () => {
   const [isReg, setIsReg] = useState(false);
   const [data, setData] = useState<IData>({} as IData);
 
-  const authHandler = () => {
-
-  }
+  const authHandler = () => {};
 
   return (
     <StyledView className="flex-1 items-center justify-center">
@@ -46,17 +44,33 @@ const Auth: FC = () => {
             val={data.email}
             placeholder="Enter email"
           />
-          <Field 
+          <Field
             onChange={(val) => setData({ ...data, password: val })}
             val={data.password}
             placeholder="Enter password"
             isSecure={true}
           />
-          <Button onPress={authHandler} title='Go'/>
+          <Button onPress={authHandler} title="Lets go"/>
+          <Pressable onPress={() => setIsReg(!isReg)} style={styles.pressable}>
+            <Text style={styles.pressableText}>{isReg? 'Login' : 'Register'}</Text>
+          </Pressable>
         </>
       )}
     </StyledView>
   );
 };
+
+const styles = StyleSheet.create({
+  pressable: {
+    width: '80%'
+    
+  },
+  pressableText: {
+    color: 'rgb(14, 165, 233)',
+    marginTop: 10,
+    textAlign: 'right',
+    opacity: 0.7,
+  }
+})
 
 export default withExpoSnack(Auth);
