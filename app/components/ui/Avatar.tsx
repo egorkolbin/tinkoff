@@ -17,7 +17,7 @@ const Avatar: FC<IAvatar> = ({ name, size = "small" }) => {
 const styles = StyleSheet.create({
     avatar: {
         borderRadius: 18,
-        backgroundColor: 'rgb(17, 24, 39);',
+        backgroundColor: 'rgb(209, 213, 219);',
         width: 36,
         height: 36,
         justifyContent: 'center',
