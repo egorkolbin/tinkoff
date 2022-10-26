@@ -16,24 +16,24 @@ const Field: FC<IField> = ({ onChange, val, placeholder, isSecure }) => {
   return (
     <TextInput
       style={styles.field}
-    //   showSoftInputOnFocus={false}
+      //   showSoftInputOnFocus={false}
       placeholder={placeholder}
       value={val}
       onChangeText={onChange}
       secureTextEntry={isSecure}
-    //   autoCapitalize="none"
+      //   autoCapitalize="none"
     ></TextInput>
   );
 };
 
 const styles = StyleSheet.create({
-    field: {
-        borderRadius: 10,
-        backgroundColor: 'rgb(209, 213, 219)',
-        width: "80%",
-        padding: 10,
-        marginTop: 20,
-    }
-})
+  field: {
+    borderRadius: 10,
+    backgroundColor: "rgb(209, 213, 219)",
+    width: "80%",
+    padding: 10,
+    marginTop: 20,
+  },
+});
 
-export default Field
+export default Field;

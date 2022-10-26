@@ -5,7 +5,7 @@ import Header from './Header'
 const Home:FC = () => {
   return (
     <View>
-      <Header></Header>
+      <Header ></Header>
       <Text>Home</Text>
     </View>
   )

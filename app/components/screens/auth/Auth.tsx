@@ -25,8 +25,9 @@ interface IData {
 
 const Auth: FC = () => {
   const { isLoading, login, register } = useAuth();
-  const [isReg, setIsReg] = useState(false);
+
   const [data, setData] = useState<IData>({} as IData);
+  const [isReg, setIsReg] = useState(false);
 
   const authHandler = async () => {
     const {email, password} = data
