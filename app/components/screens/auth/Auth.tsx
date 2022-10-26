@@ -24,11 +24,18 @@ interface IData {
 }
 
 const Auth: FC = () => {
-  const { isLoading } = useAuth();
+  const { isLoading, login, register } = useAuth();
   const [isReg, setIsReg] = useState(false);
   const [data, setData] = useState<IData>({} as IData);
 
-  const authHandler = () => {};
+  const authHandler = async () => {
+    const {email, password} = data
+
+    if(isReg) await register(email, password)
+    else await login(email, password)
+
+    setData({} as IData)
+  };
 
   return (
     <StyledView className="flex-1 items-center justify-center">
