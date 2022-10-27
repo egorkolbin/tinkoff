@@ -8,10 +8,12 @@ import { useProfile } from "../profile/useProfile";
 import Loader from "../../ui/Loader";
 
 const Header: FC = () => {
+  const { isLoading, name } = useProfile();
   const { navigate } = useNavigation();
-  const {isLoading, name} = useProfile()
 
-  return isLoading ? <Loader/> : (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Padding style={styles.headerPadding}>
       <Avatar name={name}></Avatar>
       <TouchableOpacity
@@ -19,7 +21,7 @@ const Header: FC = () => {
         style={styles.headerBlock}
       >
         <Text style={styles.headerText}>{name}</Text>
-        <Entypo name="chevron-small-right" size={28} style={styles.backArrow}/>
+        <Entypo name="chevron-small-right" size={28} style={styles.backArrow} />
       </TouchableOpacity>
     </Padding>
   );
@@ -28,21 +30,20 @@ const Header: FC = () => {
 const styles = StyleSheet.create({
   headerPadding: {
     display: "flex",
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 40,
-    alignItems: 'center',
+    alignItems: "center",
   },
   headerBlock: {
     display: "flex",
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   headerText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 24,
     paddingLeft: 5,
   },
-  backArrow: {
-  }
+  backArrow: {},
 });
 export default Header;

@@ -27,7 +27,7 @@ export const useProfile = () => {
         query(collection(db, "users"), where("_id", "==", user?.uid), limit(1)),
         (snapshot) => {
           const profile = snapshot.docs.map((d) => ({
-            ...(d.data() as IProfile),
+            ...(d.data() as Omit<IProfile, "docId">),
             docId: d.id,
           }))[0];
           setProfile(profile);
@@ -46,5 +46,5 @@ export const useProfile = () => {
     }),
     []
   );
-  return value
+  return value;
 };

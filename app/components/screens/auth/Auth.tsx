@@ -30,12 +30,12 @@ const Auth: FC = () => {
   const [isReg, setIsReg] = useState(false);
 
   const authHandler = async () => {
-    const {email, password} = data
+    const { email, password } = data;
 
-    if(isReg) await register(email, password)
-    else await login(email, password)
+    if (isReg) await register(email, password);
+    else await login(email, password);
 
-    setData({} as IData)
+    setData({} as IData);
   };
 
   return (
@@ -58,9 +58,11 @@ const Auth: FC = () => {
             placeholder="Enter password"
             isSecure={true}
           />
-          <Button onPress={authHandler} title="Lets go"/>
+          <Button onPress={authHandler} title="Lets go" />
           <Pressable onPress={() => setIsReg(!isReg)} style={styles.pressable}>
-            <Text style={styles.pressableText}>{isReg? 'Login' : 'Register'}</Text>
+            <Text style={styles.pressableText}>
+              {isReg ? "Login" : "Register"}
+            </Text>
           </Pressable>
         </>
       )}
@@ -70,15 +72,14 @@ const Auth: FC = () => {
 
 const styles = StyleSheet.create({
   pressable: {
-    width: '80%'
-    
+    width: "80%",
   },
   pressableText: {
-    color: 'rgb(14, 165, 233)',
+    color: "rgb(14, 165, 233)",
     marginTop: 10,
-    textAlign: 'right',
+    textAlign: "right",
     opacity: 0.7,
-  }
-})
+  },
+});
 
 export default withExpoSnack(Auth);
